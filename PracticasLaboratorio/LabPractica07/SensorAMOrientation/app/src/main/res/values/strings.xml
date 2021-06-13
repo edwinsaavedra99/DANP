@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OrientationAM</string>
+    <string name="valores_de_acelerometro">Valores de Acelerometro</string>
+    <string name="valores_de_magnometro">Valores de Magnometro</string>
+    <string name="valores_de_orientacion">Valores de Orientacion</string>
+</resources>
