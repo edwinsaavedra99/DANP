@@ -20,5 +20,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Actividad1.class);
             startActivity(intent);
         });
+        acti2.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Actividad2.class);
+            startActivity(intent);
+        });
+        acti3.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Actividad3.class);
+            startActivity(intent);
+        });
     }
 }
