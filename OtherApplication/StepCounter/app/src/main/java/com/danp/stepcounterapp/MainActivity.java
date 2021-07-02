@@ -45,23 +45,18 @@ public class MainActivity extends AppCompatActivity {
                     float y_acceleration = sensorEvent.values[1];
                     float z_acceleration = sensorEvent.values[2];
 
+                    //FILTRO DE PASO BAJO
                     double Magnitude = Math.sqrt(x_acceleration*x_acceleration + y_acceleration*y_acceleration + z_acceleration*z_acceleration);
+                    //---->>>ACELERACION TOTAL
                     double MagnitudeDelta = Magnitude - MagnitudePrevious;
                     MagnitudePrevious = Magnitude;
-                    int aux = Integer.parseInt(String.valueOf(umbral.getText()));
-                    try {
 
-                    }catch (Exception e){
-                        if (MagnitudeDelta > 6){
-                            stepCount++;
-                        }
-                        e.printStackTrace();
-                    }finally {
-                        if (MagnitudeDelta > aux){
-                            stepCount++;
-                        }
-                        textView.setText(stepCount.toString());
+
+
+                    if (MagnitudeDelta > 6){
+                        stepCount++;
                     }
+                    textView.setText(stepCount.toString());
                 }
             }
 
