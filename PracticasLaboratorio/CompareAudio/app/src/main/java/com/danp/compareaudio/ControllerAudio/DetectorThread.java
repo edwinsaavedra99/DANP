@@ -44,8 +44,10 @@ public class DetectorThread extends Thread{
         waveHeader.setChannels(channel);
         waveHeader.setBitsPerSample(bitsPerSample);
         waveHeader.setSampleRate(audioRecord.getSampleRate());
+
         silbidoApi = new WhistleApi(waveHeader);
         detectionApi = new DetectionApi(waveHeader);
+
     }
     private void initBuffer() {
         numWhistles = 0;
@@ -78,11 +80,10 @@ public class DetectorThread extends Thread{
                     // detección de silbidos
                     //System.out.println("*Whistle:");
 
-                    // boolean isWhistle = silbidoApi.isWhistle(buffer);
-
-                    // this.detectionApi = new DetectionApi(waveHeader);
-                    System.out.println(ShareSound.SpecificAudio);
-                    boolean isWhistle = detectionApi.isSpecificSound(ShareSound.SpecificAudio);
+                    boolean isWhistle = silbidoApi.isWhistle(buffer);
+                    // this.detectionApi = new DetectionApi(waveHeader).isSpecificSound();
+                    // System.out.println(ShareSound.SpecificAudio);
+                    // boolean isWhistle = detectionApi.isSpecificSound(ShareSound.SpecificAudio);
                     if (listaResultados.getFirst()) {
                         numWhistles--;
                     }
@@ -91,7 +92,6 @@ public class DetectorThread extends Thread{
                     listaResultados.add(isWhistle);
 
                     if (isWhistle) {
-                        System.out.println("SI DETEEEEEEEEEECTAAAAAAAA");
                         numWhistles++;
                     }
 

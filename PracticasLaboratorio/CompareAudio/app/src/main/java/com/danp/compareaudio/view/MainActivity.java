@@ -1,15 +1,11 @@
 package com.danp.compareaudio.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-
 import com.danp.compareaudio.ControllerAudio.RecoderActivity;
 import com.danp.compareaudio.R;
-import com.danp.compareaudio.controller.Camera2Service;
 import com.danp.compareaudio.ControllerAudio.VocalServicio;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,45 +22,18 @@ public class MainActivity extends AppCompatActivity {
         takePictureButton = (Button) findViewById(R.id.btn_takepicture);
         stopButton = (Button) findViewById(R.id.btn_stop);
         gotoRecoder = findViewById(R.id.gotoRecoder);
-        takePictureButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent siguiente= new Intent(MainActivity.this, Camera2Service.class);
-                startService(siguiente);
-            }
+        start = findViewById(R.id.btnIniciar);
+        stop = findViewById(R.id.btnDetener);
+        start.setOnClickListener(v -> {
+            startService(new Intent(getBaseContext(), VocalServicio.class));
         });
-        stopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent siguiente= new Intent(MainActivity.this, Camera2Service.class);
-                stopService(siguiente);
+        stop.setOnClickListener(v -> {
+            stopService(new Intent(getBaseContext(), VocalServicio.class));
+        });
 
-            }
-        });
-        /*if (AppCompatActivity.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && AppCompatActivity.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            AppCompatActivity.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1000);
-            AppCompatActivity.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1000);
-        }*/
-        start = (Button) findViewById(R.id.btnIniciar);
-        stop = (Button) findViewById(R.id.btnDetener);
-        start.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startService(new Intent(getBaseContext(), VocalServicio.class));
-            }
-        });
-        stop.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                stopService(new Intent(getBaseContext(),VocalServicio.class));
-            }
-        });
-        gotoRecoder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RecoderActivity.class);
-                startActivity(intent);
-            }
+        gotoRecoder.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, RecoderActivity.class);
+            startActivity(intent);
         });
     }
 

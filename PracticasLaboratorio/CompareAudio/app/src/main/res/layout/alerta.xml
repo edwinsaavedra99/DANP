@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_weight="80"
         android:gravity="center"
-        android:text="Silbido Detectado"
+        android:text="Foto tomada, guardada en almacenamiento interno"
         android:textSize="30dp" />
 
     <LinearLayout
@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
         <Button
+            android:visibility="gone"
             android:id="@+id/restartButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,12 +28,13 @@
             android:text="Restart"
             android:textStyle="bold" />
         <Button
+            android:layout_margin="20dp"
             android:id="@+id/quitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="20"
-            android:text="Cancelar"
+            android:text="Regresar"
             android:textStyle="bold" />
 
     </LinearLayout>

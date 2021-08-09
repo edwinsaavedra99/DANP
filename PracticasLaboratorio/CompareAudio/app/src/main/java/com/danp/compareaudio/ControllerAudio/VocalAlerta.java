@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.danp.compareaudio.R;
+import com.danp.compareaudio.controller.Camera2Service;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class VocalAlerta extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
@@ -21,9 +23,12 @@ public class VocalAlerta extends AppCompatActivity implements View.OnClickListen
         stopService(new Intent(getBaseContext(), VocalServicio.class));
         initialize();
 
-        miSonido = MediaPlayer.create(this,R.raw.alarm);
+        /*miSonido = MediaPlayer.create(this,R.raw.alarm);
         miSonido.setOnCompletionListener(this);
-        miSonido.start();
+        miSonido.start();*/
+
+        Intent siguiente= new Intent(VocalAlerta.this, Camera2Service.class);
+        startService(siguiente);
 
     }
     private void initialize() {
@@ -43,7 +48,9 @@ public class VocalAlerta extends AppCompatActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.quitButton:
-                miSonido.release();
+                Intent siguiente= new Intent(VocalAlerta.this, Camera2Service.class);
+                stopService(siguiente);
+                //miSonido.release();
                 finish();
                 break;
         }

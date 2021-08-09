@@ -59,9 +59,8 @@ public class RecorderThread extends Thread {
             totalAbsValue += Math.abs(sample);
         }
         averageAbsValue = totalAbsValue / frameByteSize / 2;
-        System.out.println("*******"+averageAbsValue);
         if (averageAbsValue < 30){
-            //return null;
+            return null;
         }
 
         return buffer;

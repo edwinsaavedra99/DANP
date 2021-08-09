@@ -49,35 +49,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/btn_takepicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="161dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
         android:background="#186285"
-        android:text=" Empezar "
+        android:text=" Empezar Camara"
         android:textColor="#ffffff"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_stop"
+        app:layout_constraintHorizontal_bias="0.693"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="0.413"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/btn_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="8dp"
         android:background="#186285"
-        android:text="Terminar"
+        android:text="Terminar Camara"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnDetener"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDetener"
-        app:layout_constraintVertical_bias="0.413"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
         tools:ignore="MissingConstraints" />
 
     <Button

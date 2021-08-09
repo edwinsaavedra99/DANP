@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import com.danp.compareaudio.R;
+import com.danp.compareaudio.controller.Camera2Service;
 import com.danp.compareaudio.view.MainActivity;
 
 public class VocalServicio extends Service implements DetectarSonidoListener {
@@ -74,7 +75,6 @@ public class VocalServicio extends Service implements DetectarSonidoListener {
         Intent intent = new Intent(this, VocalAlerta.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        Toast.makeText(this, "Silbido detectado", Toast.LENGTH_LONG).show();
         this.stopSelf();
     }
     public void stopNotification(){
