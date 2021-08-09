@@ -1,0 +1,4 @@
+include ':musicg-1.4.2.0'
+include ':musicg-1.4.2.0'
+include ':app'
+rootProject.name = "CompareAudio"
